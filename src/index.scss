@@ -1,0 +1,149 @@
+$colors: (
+    card: #192127,
+    primary: #85b6bf,
+    correct: #5bc197,
+    wrong: #c481a2,
+    text: #85b6bf,
+    body:
+        linear-gradient(183.48deg, #192127 2.87%, rgba(25, 33, 39, 0.8) 98.77%),
+);
+$font-sizes: (
+    main-bigscreen: 1.5rem,
+    title-bigscreen: 2rem,
+    main-smallscreen: 1.2rem,
+    title-smallscreen: 1.5rem,
+);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.text-main {
+    font-size: map-get($font-sizes, main-bigscreen);
+    width: 80%;
+    margin: auto;
+    padding: 0.5rem;
+}
+.text-title {
+    font-size: map-get($font-sizes, title-bigscreen);
+    color: map-get($colors, correct);
+    text-align: center;
+    margin: 1rem;
+}
+.app {
+    height: 100vh;
+    background: map-get($colors, body);
+    color: map-get($colors, text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #{&}__card {
+        background-color: map-get($colors, card);
+        width: 70vw;
+        height: 70vh;
+        border-radius: 1rem;
+    }
+}
+.start {
+    #{&}__start-btn {
+        border: none;
+        border-radius: 0.5em;
+        background: map-get($colors, correct);
+        color: map-get($colors, card);
+        display: block;
+        margin: auto;
+        width: 7.5rem;
+        margin-top: 1rem;
+    }
+    #{&}__start-btn:hover {
+        opacity: 0.8;
+    }
+    #{&}__start-btn:active {
+        transform: translateY(4px);
+    }
+}
+.question {
+    #{&}__answer-btn {
+        border: none;
+        border-radius: 0.5em;
+        background: map-get($colors, primary);
+        color: map-get($colors, card);
+        display: block;
+        margin: auto;
+        width: 50vw;
+        margin-top: 1.5rem;
+    }
+    #{&}__answer-btn:hover {
+        opacity: 0.8;
+    }
+    #{&}__answer-btn:active {
+        transform: translateY(4px);
+    }
+    #{&}__content {
+        margin-top: 1rem;
+    }
+}
+.difficulty-easy {
+    text-align: center;
+    color: map-get($colors, card);
+    width: 20vw;
+    background-color: map-get($colors, correct);
+}
+.difficulty-middle {
+    text-align: center;
+    color: map-get($colors, card);
+    width: 20vw;
+    background-color: map-get($colors, primary);
+}
+.difficulty-hard {
+    text-align: center;
+    color: map-get($colors, card);
+    width: 20vw;
+    background-color: map-get($colors, wrong);
+}
+.result {
+    #{&}__main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin: 2rem auto;
+    }
+
+    #{&}__quit-btn {
+        border: none;
+        border-radius: 0.5em;
+        background: map-get($colors, primary);
+        color: map-get($colors, card);
+        display: block;
+        margin: auto;
+        width: 7.5rem;
+        margin-top: 1rem;
+    }
+    #{&}__quit-btn:hover {
+        opacity: 0.8;
+    }
+    #{&}__quit-btn:active {
+        transform: translateY(4px);
+    }
+}
+
+@media (max-width: 700px) {
+    .text-main {
+        font-size: map-get($font-sizes, main-smallscreen);
+    }
+    .text-title {
+        font-size: map-get($font-sizes, title-smallscreen);
+    }
+    .app {
+        #{&}__card {
+            width: 90vw;
+            height: 90vh;
+        }
+    }
+    .question {
+        #{&}__answer-btn {
+            width: 70vw;
+        }
+    }
+}
