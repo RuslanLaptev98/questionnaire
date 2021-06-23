@@ -7,10 +7,6 @@ export default function StartButton({
     settingQuestionDifficulties,
     settingAnswers,
     settingQuestionContent,
-    refAnswer,
-    questions,
-    countingCorrectAnswers,
-    currentQuestion,
 }) {
     return (
         <button
@@ -22,7 +18,6 @@ export default function StartButton({
                 settingQuestionDifficulties()
                 settingAnswers()
                 settingQuestionContent()
-                console.log(questions)
             }}
         >
             <p className="text-main">Start</p>

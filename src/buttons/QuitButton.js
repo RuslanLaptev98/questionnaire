@@ -3,7 +3,6 @@ import React from 'react'
 export default function QuitButton({
     setStage,
     fetching,
-    setCorrectAnswers,
     setEasyCorrect,
     setMediumCorrect,
     setHardCorrect,

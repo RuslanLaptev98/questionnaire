@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import AnswerButton from './buttons/AnswerButton'
 import Easy from './difficulty/Easy'
 import Middle from './difficulty/Middle'
@@ -12,7 +12,6 @@ export default function Question({
     incrementQuestion,
     difficulty,
     questionType,
-    countingTotalDifficulty,
     settingQuestionTypes,
     settingQuestionDifficulties,
     settingAnswers,
@@ -22,8 +21,6 @@ export default function Question({
     setSelectedButton,
     countingCorrectAnswers,
     refAnswer,
-    settingCorrectAnswers,
-    decrementingByOne,
 }) {
     let answerNumbers = {
         zero: 0,
@@ -32,17 +29,10 @@ export default function Question({
         three: 3,
     }
     useEffect(() => {
-        countingTotalDifficulty()
         settingQuestionTypes()
         settingQuestionDifficulties()
         settingAnswers()
         settingQuestionContent()
-
-        console.log(
-            refAnswer.current,
-            questions[currentQuestion].correct_answer,
-            currentQuestion
-        )
     }, [currentQuestion])
     return (
         <div className="question">
@@ -61,7 +51,6 @@ export default function Question({
                 <div>
                     <AnswerButton
                         answer={answers[0]}
-                        answers={answers}
                         answerNumber={answerNumbers.zero}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -69,7 +58,6 @@ export default function Question({
                     />
                     <AnswerButton
                         answer={answers[1]}
-                        answers={answers}
                         answerNumber={answerNumbers.one}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -77,7 +65,6 @@ export default function Question({
                     />
                     <AnswerButton
                         answer={answers[2]}
-                        answers={answers}
                         answerNumber={answerNumbers.two}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -85,7 +72,6 @@ export default function Question({
                     />
                     <AnswerButton
                         answer={answers[3]}
-                        answers={answers}
                         answerNumber={answerNumbers.three}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -96,7 +82,6 @@ export default function Question({
                 <div>
                     <AnswerButton
                         answer={answers[0]}
-                        answers={answers}
                         answerNumber={answerNumbers.zero}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -104,7 +89,6 @@ export default function Question({
                     />
                     <AnswerButton
                         answer={answers[1]}
-                        answers={answers}
                         answerNumber={answerNumbers.one}
                         selectedButton={selectedButton}
                         setSelectedButton={setSelectedButton}
@@ -115,12 +99,10 @@ export default function Question({
             <NextButton
                 incrementQuestion={incrementQuestion}
                 setSelectedButton={setSelectedButton}
-                answers={answers}
                 countingCorrectAnswers={countingCorrectAnswers}
                 refAnswer={refAnswer}
                 questions={questions}
                 currentQuestion={currentQuestion}
-                countingTotalDifficulty={countingTotalDifficulty}
             />
         </div>
     )

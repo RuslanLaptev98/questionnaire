@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 export default function NextButton({
     incrementQuestion,
-    selectedButton,
     setSelectedButton,
     countingCorrectAnswers,
-    answers,
     refAnswer,
     questions,
     currentQuestion,
-    countingTotalDifficulty,
 }) {
-    useEffect(() => {
-        console.log(currentQuestion)
-    }, [currentQuestion])
     return (
         <button
             className="button question__next-btn"
@@ -28,7 +22,6 @@ export default function NextButton({
                     console.log('incorrect answer')
                 }
                 incrementQuestion()
-                console.log(currentQuestion)
                 setSelectedButton()
             }}
         >

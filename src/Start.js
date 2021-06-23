@@ -8,10 +8,6 @@ export default function Start({
     settingQuestionDifficulties,
     settingAnswers,
     settingQuestionContent,
-    refAnswer,
-    questions,
-    countingCorrectAnswers,
-    currentQuestion,
 }) {
     useEffect(() => {}, [])
     return (
@@ -38,10 +34,6 @@ export default function Start({
                 settingQuestionDifficulties={settingQuestionDifficulties}
                 settingAnswers={settingAnswers}
                 settingQuestionContent={settingQuestionContent}
-                refAnswer={refAnswer}
-                questions={questions}
-                countingCorrectAnswers={countingCorrectAnswers}
-                currentQuestion={currentQuestion}
             />
         </div>
     )

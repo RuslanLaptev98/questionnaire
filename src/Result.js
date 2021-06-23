@@ -9,7 +9,6 @@ export default function Result({
     correctAnswers,
     totalAnswers,
     fetching,
-    setCorrectAnswers,
     setEasyCorrect,
     setMediumCorrect,
     setHardCorrect,
@@ -17,7 +16,6 @@ export default function Result({
     return (
         <div className="result">
             <p className="text-title">Your results:</p>
-
             <div className="result__main">
                 <Easy />
                 <p className="result-score text-main">
@@ -36,7 +34,6 @@ export default function Result({
             <QuitButton
                 setStage={setStage}
                 fetching={fetching}
-                setCorrectAnswers={setCorrectAnswers}
                 setEasyCorrect={setEasyCorrect}
                 setMediumCorrect={setMediumCorrect}
                 setHardCorrect={setHardCorrect}
