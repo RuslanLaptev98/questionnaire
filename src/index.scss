@@ -117,7 +117,7 @@ $font-sizes: (
     transform: translateY(4px);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .text-main {
         font-size: map-get($font-sizes, main-smallscreen);
     }
