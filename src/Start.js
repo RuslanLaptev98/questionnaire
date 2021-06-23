@@ -1,7 +1,18 @@
 import React from 'react'
-import StartButton from './StartButton'
+import StartButton from './buttons/StartButton'
 
-export default function Start() {
+export default function Start({
+    setStage,
+    countingTotalDifficulty,
+    settingQuestionTypes,
+    settingQuestionDifficulties,
+    settingAnswers,
+    settingQuestionContent,
+    refAnswer,
+    questions,
+    countingCorrectAnswers,
+    currentQuestion,
+}) {
     return (
         <div className="start">
             <p className="text-title">Welcome to the Questionnaire!</p>
@@ -12,13 +23,25 @@ export default function Start() {
                 </p>
                 <p className="text-main">
                     Questions vary by difficulty (easy, middle and hard), and by
-                    type (one or multiple correct answers)
+                    type (true/false or multiple options with one correct
+                    answer)
                 </p>
                 <p className="text-main">
                     To begin the quiz, hit the Start button!
                 </p>
             </div>
-            <StartButton />
+            <StartButton
+                setStage={setStage}
+                countingTotalDifficulty={countingTotalDifficulty}
+                settingQuestionTypes={settingQuestionTypes}
+                settingQuestionDifficulties={settingQuestionDifficulties}
+                settingAnswers={settingAnswers}
+                settingQuestionContent={settingQuestionContent}
+                refAnswer={refAnswer}
+                questions={questions}
+                countingCorrectAnswers={countingCorrectAnswers}
+                currentQuestion={currentQuestion}
+            />
         </div>
     )
 }

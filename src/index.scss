@@ -1,9 +1,8 @@
 $colors: (
-    card: #192127,
-    primary: #85b6bf,
-    correct: #5bc197,
-    wrong: #c481a2,
-    text: #85b6bf,
+    dark: #192127,
+    customblue: #85b6bf,
+    customgreen: #5bc197,
+    custompink: #c481a2,
     body:
         linear-gradient(183.48deg, #192127 2.87%, rgba(25, 33, 39, 0.8) 98.77%),
 );
@@ -26,81 +25,49 @@ $font-sizes: (
 }
 .text-title {
     font-size: map-get($font-sizes, title-bigscreen);
-    color: map-get($colors, correct);
+    color: map-get($colors, customgreen);
     text-align: center;
     margin: 1rem;
 }
 .app {
     height: 100vh;
     background: map-get($colors, body);
-    color: map-get($colors, text);
+    color: map-get($colors, customblue);
     display: flex;
     justify-content: center;
     align-items: center;
 
     #{&}__card {
-        background-color: map-get($colors, card);
+        background-color: map-get($colors, dark);
         width: 70vw;
-        height: 70vh;
+        height: 80vh;
         border-radius: 1rem;
     }
 }
 .start {
     #{&}__start-btn {
-        border: none;
-        border-radius: 0.5em;
-        background: map-get($colors, correct);
-        color: map-get($colors, card);
-        display: block;
-        margin: auto;
+        background: map-get($colors, customgreen);
         width: 7.5rem;
         margin-top: 1rem;
-    }
-    #{&}__start-btn:hover {
-        opacity: 0.8;
-    }
-    #{&}__start-btn:active {
-        transform: translateY(4px);
     }
 }
 .question {
     #{&}__answer-btn {
-        border: none;
-        border-radius: 0.5em;
-        background: map-get($colors, primary);
-        color: map-get($colors, card);
-        display: block;
-        margin: auto;
+        background: map-get($colors, customblue);
         width: 50vw;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
     }
-    #{&}__answer-btn:hover {
-        opacity: 0.8;
-    }
-    #{&}__answer-btn:active {
-        transform: translateY(4px);
+    #{&}__answer-btn.selected {
+        background: map-get($colors, customgreen);
     }
     #{&}__content {
         margin-top: 1rem;
     }
-}
-.difficulty-easy {
-    text-align: center;
-    color: map-get($colors, card);
-    width: 20vw;
-    background-color: map-get($colors, correct);
-}
-.difficulty-middle {
-    text-align: center;
-    color: map-get($colors, card);
-    width: 20vw;
-    background-color: map-get($colors, primary);
-}
-.difficulty-hard {
-    text-align: center;
-    color: map-get($colors, card);
-    width: 20vw;
-    background-color: map-get($colors, wrong);
+    #{&}__next-btn {
+        background: map-get($colors, customgreen);
+        width: 20vw;
+        margin-top: 2rem;
+    }
 }
 .result {
     #{&}__main {
@@ -111,21 +78,43 @@ $font-sizes: (
     }
 
     #{&}__quit-btn {
-        border: none;
-        border-radius: 0.5em;
-        background: map-get($colors, primary);
-        color: map-get($colors, card);
-        display: block;
-        margin: auto;
+        background: map-get($colors, customblue);
         width: 7.5rem;
         margin-top: 1rem;
     }
-    #{&}__quit-btn:hover {
-        opacity: 0.8;
+}
+.difficulty {
+    #{&}__easy {
+        text-align: center;
+        color: map-get($colors, dark);
+        width: 20vw;
+        background-color: map-get($colors, customgreen);
     }
-    #{&}__quit-btn:active {
-        transform: translateY(4px);
+    #{&}__middle {
+        text-align: center;
+        color: map-get($colors, dark);
+        width: 20vw;
+        background-color: map-get($colors, customblue);
     }
+    #{&}__hard {
+        text-align: center;
+        color: map-get($colors, dark);
+        width: 20vw;
+        background-color: map-get($colors, custompink);
+    }
+}
+.button {
+    border: none;
+    border-radius: 0.5em;
+    color: map-get($colors, dark);
+    display: block;
+    margin: auto;
+}
+.button:hover {
+    opacity: 0.8;
+}
+.button:active {
+    transform: translateY(4px);
 }
 
 @media (max-width: 700px) {

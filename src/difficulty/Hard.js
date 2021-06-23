@@ -1,5 +1,9 @@
 import React from 'react'
 
 export default function Hard() {
-    return <p className="text-main difficulty-hard">hard</p>
+    return (
+        <div className="difficulty">
+            <p className="text-main difficulty__hard">hard</p>
+        </div>
+    )
 }
