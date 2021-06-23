@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import StartButton from './buttons/StartButton'
 
 export default function Start({
@@ -12,7 +12,15 @@ export default function Start({
     questions,
     countingCorrectAnswers,
     currentQuestion,
+    setCorrectAnswers,
 }) {
+    useEffect(() => {
+        //    setCorrectAnswers({
+        //        easy: 0,
+        //        middle: 0,
+        //        hard: 0,
+        //    })
+    }, [])
     return (
         <div className="start">
             <p className="text-title">Welcome to the Questionnaire!</p>

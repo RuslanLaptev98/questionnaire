@@ -59,7 +59,7 @@ function App() {
             middle: m,
             hard: h,
         })
-        console.log(totalAnswers)
+        console.log('total answers: ', totalAnswers)
     }
     /* counting correct answers */
     const [easyCorrect, setEasyCorrect] = useState(0)
@@ -81,16 +81,13 @@ function App() {
     }
     const countingCorrectAnswers = () => {
         console.log('counting correct answers function called')
-
-        questions[currentQuestion].difficulty === 'easy'
-            ? setEasyCorrect(easyCorrect + 1)
-            : questions[currentQuestion].difficulty === 'medium'
-            ? setMediumCorrect(mediumCorrect + 1)
-            : setHardCorrect(hardCorrect + 1)
-
-        console.log(easyCorrect, mediumCorrect, hardCorrect, currentQuestion)
-
-        settingCorrectAnswers()
+        if (questions[currentQuestion]) {
+            questions[currentQuestion].difficulty === 'easy'
+                ? setEasyCorrect(easyCorrect + 1)
+                : questions[currentQuestion].difficulty === 'medium'
+                ? setMediumCorrect(mediumCorrect + 1)
+                : setHardCorrect(hardCorrect + 1)
+        }
     }
 
     /* setting selected button */
@@ -123,9 +120,8 @@ function App() {
 
     /* function to increment question number */
     const incrementQuestion = () => {
-        let i = currentQuestion
-        if (i < 9) {
-            setCurrentQuestion(i + 1)
+        if (currentQuestion < 9) {
+            setCurrentQuestion(currentQuestion + 1)
         } else {
             setStage('result')
             setCurrentQuestion(0)
@@ -139,6 +135,14 @@ function App() {
         fetching()
     }, [])
 
+    useEffect(() => {
+        settingCorrectAnswers()
+    }, [easyCorrect, mediumCorrect, hardCorrect])
+
+    useEffect(() => {
+        if (questions) {
+        }
+    }, [countingCorrectAnswers])
     return (
         <div className="app">
             {!questions ? (
@@ -159,6 +163,7 @@ function App() {
                             questions={questions}
                             countingCorrectAnswers={countingCorrectAnswers}
                             currentQuestion={currentQuestion}
+                            setCorrectAnswers={setCorrectAnswers}
                         />
                     ) : stage === 'question' ? (
                         <Question

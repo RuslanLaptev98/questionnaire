@@ -40,12 +40,10 @@ export default function Question({
 
         console.log(
             refAnswer.current,
-            questions[currentQuestion].correct_answer
+            questions[currentQuestion].correct_answer,
+            currentQuestion
         )
     }, [currentQuestion])
-    useEffect(() => {
-        countingCorrectAnswers()
-    }, [])
     return (
         <div className="question">
             <p className="text-title">Question {currentQuestion + 1}/10</p>
